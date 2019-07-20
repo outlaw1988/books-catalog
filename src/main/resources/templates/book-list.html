@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>BookCatalog</title>
+<!--    <link rel='stylesheet' media='screen' href='/css/bootstrap.min.css'>-->
+<!--    <script type='text/javascript' src='/js/bootstrap.min.js'></script>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">BookCatalog</span>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>Books</h5>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">title</th>
+            <th scope="col">description</th>
+            <th scope="col">year</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="book: ${books}">
+            <td th:text="${book.title}"/>
+            <td th:text="${book.description}"/>
+            <td th:text="${book.year}"/>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
