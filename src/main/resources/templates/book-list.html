@@ -21,21 +21,40 @@
     </div>
     <table class="table">
         <thead>
-        <tr>
-            <th scope="col">title</th>
-            <th scope="col">description</th>
-            <th scope="col">year</th>
-        </tr>
+            <tr>
+                <th scope="col">title</th>
+                <th scope="col">description</th>
+                <th scope="col">year</th>
+                <th scope="col">Details</th>
+            </tr>
         </thead>
-        <tbody>
 
-        <tr th:each="book: ${books}">
-            <td th:text="${book.title}"/>
-            <td th:text="${book.description}"/>
-            <td th:text="${book.year}"/>
-        </tr>
-
+        <tbody th:each="book: ${books}">
+            <tr>
+                <td th:text="${book.title}"/>
+                <td th:text="${book.description}"/>
+                <td th:text="${book.year}"/>
+                <td>
+                    <div class="row">
+                        <div class="col-6">
+                            <a th:href="@{'/book-details/' + ${book.id}}">Details</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-6">
+                            <form method="post" action="#" th:action="@{/delete-book}" th:object="${book}">
+                                <input type="hidden" th:value="*{id}" id="id" name="id"/>
+                                <input class="btn btn-danger btn-sm" type="submit" value="delete">
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
     </table>
+    <a href="/save-book">Add new book</a>
 </div>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>BookCatalog</title>
+    <link rel='stylesheet' media='screen' href='/css/bootstrap.min.css'>
+    <script type='text/javascript' src='/js/bootstrap.min.js'></script>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">BookCatalog</span>
+    <span class="navbar-brand mb-0 h1"><a th:href="@{'/book-list'}">Books list</a></span>
+</nav> <br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>Book Detail</h5>
+        </div>
+    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td th:text="title"/>
+                <td th:text="${book.title}"/>
+            </tr>
+            <tr>
+                <td th:text="description"/>
+                <td th:text="${book.description}"/>
+            </tr>
+            <tr>
+                <td th:text="ISBN"/>
+                <td th:text="${book.isbn}"/>
+            </tr>
+            <tr>
+                <td th:text="year"/>
+                <td th:text="${book.year}"/>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

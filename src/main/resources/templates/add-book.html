@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>BookCatalog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">BookCatalog</span>
+    <span class="navbar-brand mb-0 h1"><a th:href="@{'/book-list'}">Books list</a></span>
+</nav> <br>
+<div class="container">
+    <form method="post" th:action="@{/save-book}" th:object="${book}">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td th:text="title"/>
+                    <td >
+                        <input th:field="*{title}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td th:text="description"/>
+                    <td >
+                        <input th:field="*{description}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td th:text="year"/>
+                    <td >
+                        <input th:field="*{year}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td th:text="isbn"/>
+                    <td >
+                        <input th:field="*{isbn}"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="add-book" type="submit" class="btn btn-success">Add book</button>
+    </form>
+</div>
+</body>
+</html>
