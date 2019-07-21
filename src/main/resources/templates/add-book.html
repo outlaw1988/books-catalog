@@ -20,24 +20,28 @@
                     <td >
                         <input th:field="*{title}"/>
                     </td>
+                    <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
                 </tr>
                 <tr>
                     <td th:text="description"/>
                     <td >
                         <input th:field="*{description}"/>
                     </td>
+                    <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}"/>
                 </tr>
                 <tr>
                     <td th:text="year"/>
                     <td >
                         <input th:field="*{year}"/>
                     </td>
+                    <td th:if="${#fields.hasErrors('year')}" th:errors="*{year}"/>
                 </tr>
                 <tr>
                     <td th:text="isbn"/>
                     <td >
                         <input th:field="*{isbn}"/>
                     </td>
+                    <td th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"/>
                 </tr>
             </tbody>
         </table>

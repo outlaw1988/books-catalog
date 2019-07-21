@@ -27,12 +27,12 @@ public class BookServiceDbImpl implements BookService {
     @Override
     public Book getBook(Long id) {
         Optional<Book> book = bookRepository.findById(id);
-        return book.get();
+        return book.orElse(null);
     }
 
     @Override
     public void removeBook(Long id) {
-        Book book = bookRepository.findById(id).get();
+        Book book = getBook(id);
         bookRepository.delete(book);
     }
 
