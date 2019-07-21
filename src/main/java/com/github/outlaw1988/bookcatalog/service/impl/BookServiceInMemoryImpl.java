@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@Primary
 @Service
 public class BookServiceInMemoryImpl implements BookService {
 
