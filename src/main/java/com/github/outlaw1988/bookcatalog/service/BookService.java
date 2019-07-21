@@ -10,6 +10,5 @@ public interface BookService {
     Book getBook(Long id);
     void removeBook(Long id);
     void addBook(Book book);
-    Long getIdToUse();
 
 }

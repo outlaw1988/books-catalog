@@ -1,12 +1,15 @@
-package com.github.outlaw1988.bookcatalog.service;
+package com.github.outlaw1988.bookcatalog.service.impl;
 
 import com.github.outlaw1988.bookcatalog.model.Book;
+import com.github.outlaw1988.bookcatalog.service.BookService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Primary
 @Service
-public class BookServiceImpl implements BookService {
+public class BookServiceInMemoryImpl implements BookService {
 
     private Map<Long, Book> books;
 
@@ -21,7 +24,6 @@ public class BookServiceImpl implements BookService {
                         "operacyjnych. Ponadto posiada system automatycznego zarządzania pamięcią, który zdejmuje " +
                         "z programisty obowiązek panowania nad tym skomplikowanym obszarem.",
                 "2014"));
-
 
         books.put(2L, new Book(2L,
                 "Czysty kod. Podręcznik dobrego programisty",
@@ -64,11 +66,8 @@ public class BookServiceImpl implements BookService {
         books.put(id, book);
     }
 
-    @Override
-    public Long getIdToUse() {
-        Long maxId = books.keySet().stream()
-                                    .max(Comparator.comparing(Long::valueOf))
-                                    .get();
+    private Long getIdToUse() {
+        Long maxId = Collections.max(books.keySet());
         return ++maxId;
     }
 

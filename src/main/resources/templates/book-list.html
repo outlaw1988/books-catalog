@@ -44,7 +44,7 @@
                 <td>
                     <div class="row">
                         <div class="col-6">
-                            <form method="post" action="#" th:action="@{/delete-book}" th:object="${book}">
+                            <form method="post" th:action="@{/delete-book}" th:object="${book}">
                                 <input type="hidden" th:value="*{id}" id="id" name="id"/>
                                 <input class="btn btn-danger btn-sm" type="submit" value="delete">
                             </form>
